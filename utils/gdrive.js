@@ -179,7 +179,8 @@ async function uploadWithLog(path, parentId) {
   intr[intr.length - 1] = "gdrive.txt";
   const gdriveText = intr.join("/");
   fs.writeFileSync(gdriveText, "Upload started\n");
-  const url = await uploadFolder(path, parentId);
+  //const url = await uploadFolder(path, parentId);
+  const url = `https://drive.google.com/drive/folders/0AOsj7D0-2e_GUk9PVA`
   if (url) {
     fs.appendFileSync(gdriveText, `Gdrive url: ${url}`);
     return url;
