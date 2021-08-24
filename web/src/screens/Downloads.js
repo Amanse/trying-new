@@ -41,6 +41,7 @@ function Downloads() {
           label="Magnet Link"
           placeholder="magnet:?xt=urn:btih:08ada5a7a6183aae1e09d831df6748d566095a10"
           value={link}
+          autoComplete="off"
           onChange={setLink}
           required
         />
