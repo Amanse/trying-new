@@ -1,7 +1,7 @@
 const fs = require('fs')
 const ipldC = require("@ipld/car")
 
-export async function storeCarFile(filename, client) {
+async function storeCarFile(filename, client) {
   const inStream = fs.createReadStream(filename)
   const car = await ipldC.CarReader.fromIterable(inStream)
   
@@ -9,3 +9,5 @@ export async function storeCarFile(filename, client) {
   console.log('Stored CAR file! CID:', cid)
   return cid
 }
+
+module.exports = storeCarFile
