@@ -1,9 +1,9 @@
-import { createReadStream } from 'fs'
-import { CarReader } from '@ipld/car'
+const fs = require('fs')
+const ipldC = require("@ipld/car")
 
 export async function storeCarFile(filename, client) {
-  const inStream = createReadStream(filename)
-  const car = await CarReader.fromIterable(inStream)
+  const inStream = fs.createReadStream(filename)
+  const car = await ipldC.CarReader.fromIterable(inStream)
   
   const cid = await client.putCar(car)
   console.log('Stored CAR file! CID:', cid)
